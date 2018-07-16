@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1071981564823",
+    "firebase_url": "https://devfest-north-296c6.firebaseio.com",
+    "project_id": "devfest-north-296c6",
+    "storage_bucket": "devfest-north-296c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071981564823:android:9c306b649032d6f3",
+        "android_client_info": {
+          "package_name": "com.defvest.devfestnorth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071981564823-9scspv9ml4ds47qqq4fqbrcd3v49ssb1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1071981564823-9scspv9ml4ds47qqq4fqbrcd3v49ssb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8Vyqq8mFektytK3aPLBVuKNwvUQV5O2M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

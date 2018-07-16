@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/calendar"
+        android:title="@string/title_schedule" />
+
+    <item
+        android:id="@+id/navigation_feeds"
+        android:icon="@drawable/feeds"
+        android:title="@string/title_feeds" />
+
+
+    <item
+        android:id="@+id/navigation_organizers"
+        android:icon="@drawable/organizers"
+        android:title="@string/title_organizers" />
+
+    <item
+        android:id="@+id/navigation_map"
+        android:icon="@drawable/ic_map_black_24dp"
+        android:title="@string/title_speakers" />
+
+</menu>

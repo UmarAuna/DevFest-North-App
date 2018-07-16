@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:background="#dedede"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:id="@+id/appBarLayout">
+        <RelativeLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/activity_horizontal_margin">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dev_cardview"
+                android:drawablePadding="22dp"
+                android:gravity="left|center"
+                android:layout_margin="1dp"
+                android:padding="4dp">
+
+                <EditText
+                    android:id="@+id/search_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/imgback"
+                    android:layout_toLeftOf="@+id/imgclear"
+                    android:layout_toRightOf="@+id/imgback"
+                    android:layout_toStartOf="@+id/imgclear"
+                    android:backgroundTint="#ffffff"
+                    android:drawablePadding="22dp"
+                    android:gravity="left|center"
+                    android:hint="Search Speakers"
+                    android:inputType="text"
+                    android:textColor="#00B0FF"
+                    android:textColorHint="#00B0FF" />
+
+                <ImageView
+                    android:id="@+id/imgclear"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:elevation="50dp"
+                    app:srcCompat="@drawable/clear" />
+                <ImageView
+                    android:id="@+id/imgback"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:elevation="50dp"
+                    app:srcCompat="@drawable/back" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:elevation="50dp"
+        android:layout_below="@+id/appBarLayout" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="monospace"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="No Speakers Found!!"
+        android:textSize="20sp" />
+
+</RelativeLayout>

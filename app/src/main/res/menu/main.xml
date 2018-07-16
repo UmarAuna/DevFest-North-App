@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/feedback"
+        android:orderInCategory="100"
+        android:title="Feedback"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/register"
+        android:orderInCategory="100"
+        android:title="Register"
+        android:icon="@drawable/register"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/search"
+        android:orderInCategory="100"
+        android:title="Search Speakers"
+        android:icon="@drawable/search"
+        app:showAsAction="always" />
+
+
+</menu>

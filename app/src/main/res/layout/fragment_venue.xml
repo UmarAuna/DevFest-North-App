@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:background="#dedede"
+    android:id="@+id/main_content"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:focusableInTouchMode="true"
+        android:fitsSystemWindows="true">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapvenue"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        map:liteMode="true"
+        map:cameraZoom="25"
+        android:layout_height="250dp"
+        android:focusable="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:fontFamily="casual"
+            android:text="About the Venue"/>
+
+        <TextView android:textSize="15sp"
+            android:id="@+id/mapAddress"
+            android:text=""
+            android:fontFamily="sans-serif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:textSize="15sp"
+            android:autoSizeTextType="uniform"
+            android:text=""
+            android:id="@+id/mapAbout"
+            android:fontFamily="sans-serif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

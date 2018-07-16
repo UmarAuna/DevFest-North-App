@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DevFest North</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="title_feeds">Feeds</string>
+    <string name="title_speakers">Venue</string>
+    <string name="title_organizers">Organizers</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
