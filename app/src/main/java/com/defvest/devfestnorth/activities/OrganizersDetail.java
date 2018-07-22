@@ -14,10 +14,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class OrganizersDetail extends AppCompatActivity{
     TextView Full_Name,Full_gdg, Full_about;
     String small_Name,small_gdg, small_about;
-    ImageView photo, closed;
+    CircleImageView photo;
+    ImageView closed;
 
     @SuppressLint("CheckResult")
     @Override
@@ -37,7 +40,7 @@ public class OrganizersDetail extends AppCompatActivity{
         Full_gdg = findViewById(R.id.dgdg);
         Full_about = findViewById(R.id.dabout);
         photo = findViewById(R.id.dprofile_photo);
-        closed = findViewById(R.id.close);
+        closed = findViewById(R.id.closed);
 
         closed.setOnClickListener(new View.OnClickListener() {
             @Override

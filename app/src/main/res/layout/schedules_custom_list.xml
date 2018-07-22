@@ -1,68 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#dedede"
     android:foreground="?android:attr/selectableItemBackground"
     android:clickable="true"
-    android:layout_margin="10dp"
+    android:layout_margin="8dp"
     cardview:cardElevation="1dp"
     android:focusable="true">
     <LinearLayout
         android:orientation="vertical"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/Sphoto"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:src="@drawable/tweet"
-            android:padding="3dp"/>
-
-        <TextView android:textSize="18sp"
-            android:id="@+id/Stitle"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:layout_margin="10dp" />
-        <TextView
-            android:textSize="18sp"
-            android:autoSizeTextType="uniform"
-            android:text="hello"
-            android:id="@+id/Stime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
-        <TextView android:textSize="18sp"
-            android:id="@+id/Swhen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:layout_margin="10dp" />
-        <TextView
-            android:textSize="18sp"
-            android:id="@+id/Swhere"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:layout_margin="10dp" />
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Sphoto"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/speakers" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/Scategory"
+                android:layout_gravity="end"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:background="@drawable/category"
+                android:textColor="#ffffff"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeTextType="uniform"
+                android:text="Category"/>
+        </LinearLayout>
 
         <TextView
-            android:textSize="18sp"
-            android:autoSizeTextType="uniform"
-            android:text="hello"
             android:id="@+id/Sspeaker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
-        <TextView
-            android:textSize="18sp"
+            android:text="Speaker"
+            android:fontFamily="casual"
+            android:textSize="12sp"/>
+
+        <TextView android:textSize="18sp"
+            android:id="@+id/Stitle"
+            android:textColor="#131313"
             android:autoSizeTextType="uniform"
-            android:text="hello"
-            android:id="@+id/Scategory"
+            android:fontFamily="sans-serif-condensed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:text="Title"/>
+        <TextView
+            android:id="@+id/Stime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/colorPrimary"
+            android:text="Time"
+            android:textSize="10sp"/>
+        <TextView android:textSize="18sp"
+            android:id="@+id/Swhen"
+            android:text="When"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform" />
+
+        <TextView android:textSize="18sp"
+            android:id="@+id/Swhere"
+            android:visibility="gone"
+            android:text="Where"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -1,7 +1,9 @@
 package com.defvest.devfestnorth.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,10 +16,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SpeakersDetail extends AppCompatActivity {
     TextView FullName,FullTwitter,FullWork,FullTopic,FullAbout;
     String small_name,small_twitter,small_work,small_topic,small_about;
-    ImageView Hoto, closed;
+    CircleImageView Hoto;
+    ImageView closed;
     @SuppressLint("CheckResult")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

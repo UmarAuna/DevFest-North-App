@@ -14,12 +14,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class SchedulesDetail extends AppCompatActivity {
     TextView Full_Title,Full_Time,Full_When,Full_Where,Full_Speaker,Full_Category;
     String small_title,small_time,small_when,small_where,small_spaker,small_category;
-    ImageView photo, closed;
+    CircleImageView photo;
+    ImageView  closed;
 
     @SuppressLint("CheckResult")
     @Override

@@ -18,6 +18,8 @@ import com.defvest.devfestnorth.activities.SpeakersDetail;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Speaker_Adapter extends RecyclerView.Adapter<Speaker_Adapter.SearchViewHolder> {
     Context context;
     ArrayList<String> NameList;
@@ -29,7 +31,7 @@ public class Speaker_Adapter extends RecyclerView.Adapter<Speaker_Adapter.Search
     ArrayList<String> TwitterList;
 
     class SearchViewHolder extends RecyclerView.ViewHolder {
-        ImageView profileImage;
+        CircleImageView profileImage;
         TextView name, twitter,work;
         TextView aboutmodel,topicmodel;
 

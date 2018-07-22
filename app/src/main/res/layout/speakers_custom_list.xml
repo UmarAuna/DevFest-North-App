@@ -10,7 +10,7 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:focusable="true">
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/query_image"
         android:layout_width="55dp"

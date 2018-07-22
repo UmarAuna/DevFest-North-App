@@ -1,15 +1,19 @@
 package com.defvest.devfestnorth.activities;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.defvest.devfestnorth.R;
+import com.defvest.devfestnorth.adapters.CopyURLBroadcast;
 import com.defvest.devfestnorth.adapters.Speaker_Adapter;
 import com.defvest.devfestnorth.fragments.Feeds;
 import com.defvest.devfestnorth.fragments.Organizers;
@@ -69,14 +74,12 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
         if (isNetworkConnected() || isWifiConnected()) {
-
-            //TODO: Remove Toast
-            Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();
+            /*Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();*/
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("No Internet Connection")
                     .setCancelable(false)
-                    .setMessage("It looks like your internet connection is off. Please turn it " +
+                    .setMessage("It looks like your Internet Connection is off. Please turn it " +
                             "on or some features might not work")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -120,15 +123,47 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.search) {
             startActivity(new Intent(getApplicationContext(), Speakers.class));
             return true;
-        }else if(id == R.id.register){
-            Toast.makeText(this, "register", Toast.LENGTH_SHORT).show();
-            return true;
         }else if(id== R.id.feedback){
-            Toast.makeText(this, "Feedback", Toast.LENGTH_SHORT).show();
+            //TODO: Change link for Feed back
+            OpeninCustomTab("https://minna.gdg.ng");
         }
 
         return super.onOptionsItemSelected(item);
     }
+    public void OpeninCustomTab(String url){
+        Uri website;
+        if(!url.contains("https://") && !url.contains("http://")){
+            website = Uri.parse("http://"+url);
+        }else{
+            website = Uri.parse(url);
+        }
+
+        CustomTabsIntent.Builder customtabIntent = new CustomTabsIntent.Builder();
+        customtabIntent.setToolbarColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        customtabIntent.setShowTitle(true);
+        customtabIntent.addDefaultShareMenuItem();
+        customtabIntent.setStartAnimations(this,R.anim.left_in, R.anim.left_out);
+        customtabIntent.setExitAnimations(this,R.anim.right_in, R.anim.right_out);
+        Intent copyIntent = new Intent(getApplicationContext(),CopyURLBroadcast.class);
+        PendingIntent copypendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0, copyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        customtabIntent.addMenuItem("Copy Link",copypendingIntent);
+
+        if(chromeInstalled()){
+            customtabIntent.build().intent.setPackage("com.android.chrome");
+        }
+        customtabIntent.build().launchUrl(MainActivity.this,website);
+    }
+    private boolean chromeInstalled(){
+        try{
+            getPackageManager().getPackageInfo("com.android.chrome",0);
+            return true;
+        }catch (Exception e){
+            return false;
+
+        }
+    }
+
 
 
 }
