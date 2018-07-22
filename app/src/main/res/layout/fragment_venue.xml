@@ -48,8 +48,8 @@
             android:textSize="15sp"
             android:autoSizeTextType="uniform"
             android:text=""
+            android:fontFamily="sans-serif-condensed"
             android:id="@+id/mapAbout"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />

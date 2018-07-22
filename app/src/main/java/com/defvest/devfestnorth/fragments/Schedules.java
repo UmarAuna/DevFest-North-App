@@ -27,6 +27,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -124,7 +126,7 @@ public class Schedules extends Fragment {
         TextView speaker;
         TextView category;
 
-        ImageView image;
+        CircleImageView image;
 
 
         public ScheduleViews(View itemView) {

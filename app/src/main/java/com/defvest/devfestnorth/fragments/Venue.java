@@ -21,6 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -81,7 +82,7 @@ public class Venue extends Fragment {
                     Abouts.setText(About);
                     Addresses.setText(Address);
                     Log.d("Details", Address +" "+About);
-                    Toast.makeText(getContext(), Address +" "+About, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), Address +" "+About, Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -141,10 +142,10 @@ public class Venue extends Fragment {
                             title = dataSnapshot.child("title").getValue(String.class);
 
                             Log.d("LatLon", latitu[0] +" - "+longitu[0] +" "+ title);
-                            Toast.makeText(getContext(), latitu[0].toString()+" - "+ longitu[0].toString() +" - "+title, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getContext(), latitu[0].toString()+" - "+ longitu[0].toString() +" - "+title, Toast.LENGTH_SHORT).show();
 
                             LatLng location = new LatLng(latitu[0], longitu[0]);
-                            googleMap.addMarker(new MarkerOptions().position(location).title(title));
+                            googleMap.addMarker(new MarkerOptions().position(location).title(title).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
                             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(location,17f);
                             googleMap.animateCamera(cameraUpdate);
 

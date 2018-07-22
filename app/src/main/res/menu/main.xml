@@ -7,12 +7,6 @@
         android:title="Feedback"
         app:showAsAction="never" />
     <item
-        android:id="@+id/register"
-        android:orderInCategory="100"
-        android:title="Register"
-        android:icon="@drawable/register"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/search"
         android:orderInCategory="100"
         android:title="Search Speakers"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dedede"
-    android:padding="10dp"
+    android:padding="8dp"
     tools:context=".fragments.Schedules">
 
     <android.support.v7.widget.RecyclerView
