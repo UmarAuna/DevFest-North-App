@@ -99,14 +99,14 @@ public class Venue extends Fragment {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(final GoogleMap googleMap) {
-                try{
+               /* try{
                     boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getActivity(),R.raw.style_json));
                     if(!success){
                         Toast.makeText(getContext(), "Can't Load Map", Toast.LENGTH_SHORT).show();
                     }
                 }catch (Resources.NotFoundException e){
                     Toast.makeText(getContext(), " "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+                }*/
                 int permission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION);
 
                 if (permission != PackageManager.PERMISSION_GRANTED) {

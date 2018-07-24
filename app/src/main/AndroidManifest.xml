@@ -55,7 +55,15 @@
             android:value="@string/google_maps_key" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/tweet" />
+            android:resource="@drawable/calendar" />
+
+        <meta-data
+        android:name="com.google.firebase.messaging.default_notification_color"
+        android:resource="@color/colorPrimary" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="47333" />
 
         <service android:name=".activities.MyFirebaseMessagingService">
             <intent-filter>

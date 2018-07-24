@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/feedback"
+        android:id="@+id/website"
         android:orderInCategory="100"
-        android:title="Feedback"
+        android:title="Website"
         app:showAsAction="never" />
     <item
         android:id="@+id/search"

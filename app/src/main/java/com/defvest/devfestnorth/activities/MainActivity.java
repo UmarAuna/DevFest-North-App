@@ -123,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.search) {
             startActivity(new Intent(getApplicationContext(), Speakers.class));
             return true;
-        }else if(id== R.id.feedback){
+        }else if(id== R.id.website){
             //TODO: Change link for Feed back
-            OpeninCustomTab("https://minna.gdg.ng");
+            OpeninCustomTab("https://ncdevfest.com");
         }
 
         return super.onOptionsItemSelected(item);
