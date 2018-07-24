@@ -99,7 +99,7 @@ public class Venue extends Fragment {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(final GoogleMap googleMap) {
-               /* try{
+               /*try{
                     boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getActivity(),R.raw.style_json));
                     if(!success){
                         Toast.makeText(getContext(), "Can't Load Map", Toast.LENGTH_SHORT).show();
