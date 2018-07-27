@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#dedede"
+    tools:context=".activities.About">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#dedede"
+    android:orientation="vertical"
+    tools:context=".activities.About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#dedede"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".activities.About">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:autoSizeTextType="uniform"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="DevFest North Central App"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:autoSizeTextType="uniform"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="is powered by"
+            android:textColor="#5c5656"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:elevation="10dp"
+            android:src="@drawable/sys" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:autoLink="web"
+            android:autoSizeTextType="uniform"
+            android:elevation="10dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="https://sysbit.com.ng"
+            android:textColor="#5c5656"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:elevation="10dp"
+            android:src="@drawable/gdgminna" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:autoLink="web"
+            android:autoSizeTextType="uniform"
+            android:elevation="10dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="https://minna.gdgg.ng"
+            android:textColor="#5c5656"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:autoSizeTextType="uniform"
+            android:elevation="10dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="This app is proudly open source and any contribution is welcome"
+            android:textColor="#5c5656"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/fork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:inputType="text"
+            android:text="Fork me on Github"
+            android:textColor="#ffffff" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:autoSizeTextType="uniform"
+                android:elevation="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="Inspired by"
+                android:textColor="#5c5656"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/droid"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackground"
+                android:focusable="true"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="1dp"
+                android:elevation="10dp"
+                android:src="@drawable/droidcon" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>
