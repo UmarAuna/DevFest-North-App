@@ -55,11 +55,10 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:clickable="true"
-                    android:focusable="true"
                     android:background="?attr/selectableItemBackground"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:elevation="50dp"
-                    app:srcCompat="@drawable/clear" />
+                    app:srcCompat="@drawable/clear"
+                    android:focusable="true" />
                 <ImageView
                     android:id="@+id/imgback"
                     android:padding="10dp"
@@ -69,11 +68,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:clickable="true"
-                    android:focusable="true"
                     android:background="?attr/selectableItemBackground"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:elevation="50dp"
-                    app:srcCompat="@drawable/back" />
+                    app:srcCompat="@drawable/back"
+                    android:focusable="true" />
             </RelativeLayout>
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>

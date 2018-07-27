@@ -56,11 +56,9 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/calendar" />
-
         <meta-data
-        android:name="com.google.firebase.messaging.default_notification_color"
-        android:resource="@color/colorPrimary" />
-
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="47333" />
@@ -76,10 +74,13 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".adapters.CopyURLBroadcast"
+        <receiver
+            android:name=".adapters.CopyURLBroadcast"
             android:enabled="true"
-            android:exported="true">
-        </receiver>
+            android:exported="true"/>
+
+        <activity android:name=".activities.About"
+                  android:label="@string/about"/>
     </application>
 
 </manifest>

@@ -7,6 +7,11 @@
         android:title="Website"
         app:showAsAction="never" />
     <item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:title="About"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/search"
         android:orderInCategory="100"
         android:title="Search Speakers"
