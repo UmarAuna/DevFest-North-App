@@ -81,13 +81,19 @@ public class About extends AppCompatActivity {
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                overridePendingTransition(R.anim.right_in, R.anim.right_out);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        overridePendingTransition(R.anim.right_in, R.anim.right_out);
+    }
 }
 
 

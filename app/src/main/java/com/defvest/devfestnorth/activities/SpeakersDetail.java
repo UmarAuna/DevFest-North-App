@@ -49,6 +49,7 @@ public class SpeakersDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -73,10 +74,12 @@ public class SpeakersDetail extends AppCompatActivity {
             FullWork.setText(small_work);
             FullAbout.setText(small_about);
             FullTopic.setText(small_topic);
-
-
         }
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

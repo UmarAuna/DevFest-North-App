@@ -49,6 +49,7 @@ public class Speakers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speakers);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Back = findViewById(R.id.imgback);
@@ -96,6 +97,7 @@ public class Speakers extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
@@ -288,5 +290,9 @@ public class Speakers extends AppCompatActivity {
         recyclerView.setAdapter(searchAdapter);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

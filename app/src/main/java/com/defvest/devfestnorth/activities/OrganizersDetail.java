@@ -46,6 +46,7 @@ public class OrganizersDetail extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -68,4 +69,10 @@ public class OrganizersDetail extends AppCompatActivity{
             Full_about.setText(small_about);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
+}
