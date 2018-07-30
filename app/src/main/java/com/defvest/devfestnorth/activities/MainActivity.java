@@ -118,12 +118,15 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.search) {
             startActivity(new Intent(getApplicationContext(), Speakers.class));
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             return true;
         }else if(id== R.id.website){
             OpeninCustomTab("https://ncdevfest.com");
             return true;
         }else if(id == R.id.about){
             startActivity(new Intent(MainActivity.this,About.class));
+            overridePendingTransition(R.anim.right_in, R.anim.right_out);
+            overridePendingTransition(R.anim.left_in, R.anim.left_out);
             return true;
         }
 

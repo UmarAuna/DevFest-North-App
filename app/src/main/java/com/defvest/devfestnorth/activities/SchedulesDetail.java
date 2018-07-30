@@ -50,6 +50,7 @@ public class SchedulesDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -78,5 +79,11 @@ public class SchedulesDetail extends AppCompatActivity {
             Full_Category.setText(small_category);
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }
