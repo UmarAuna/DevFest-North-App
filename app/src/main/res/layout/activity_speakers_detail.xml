@@ -68,6 +68,7 @@
             android:textSize="15sp"
             android:autoSizeTextType="uniform"
             android:text="Twitter handle"
+            android:textIsSelectable="true"
             android:textColor="#ffffff"
             android:fontFamily="monospace"
             android:id="@+id/SDtwitter"
@@ -97,7 +98,7 @@
         <TextView
             android:textSize="15sp"
             android:autoSizeTextType="uniform"
-            android:text="Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source."
+            android:text="Flutter"
             android:id="@+id/SDtopic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,14 +116,18 @@
             android:layout_height="wrap_content"
             android:autoSizeTextType="uniform"
             android:layout_margin="3dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <TextView
             android:textSize="15sp"
             android:id="@+id/SDabout"
-            android:text="About Speaker"
+            android:text="Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source. Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source. Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source. Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source. Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source. Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source. Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoSizeTextType="uniform"
             android:layout_margin="3dp" />
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>

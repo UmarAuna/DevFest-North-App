@@ -50,14 +50,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this,(int) System.currentTimeMillis(),sintent,0);
         //Todo: Change notification icon
-        Bitmap rawmap = BitmapFactory.decodeResource(getResources(), R.drawable.calendar);
+        Bitmap rawmap = BitmapFactory.decodeResource(getResources(), R.drawable.gdg);
         //Set sound of notification
         Uri notificationsound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.calendar)
+                .setSmallIcon(R.drawable.gdg)
                 .setLargeIcon(rawmap)
-                .setContentTitle("DevFest North")
+                .setContentTitle("DevFest North Central")
                 .setContentText(Message)
                 .setPriority(Notification.PRIORITY_MAX)
                 .setStyle(new NotificationCompat.BigTextStyle())
@@ -96,12 +96,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
         Uri notificationsound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         //Todo: Change notification icon
-        Bitmap rawmap = BitmapFactory.decodeResource(getResources(), R.drawable.calendar);
+        Bitmap rawmap = BitmapFactory.decodeResource(getResources(), R.drawable.gdg);
 
         NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.calendar)
+                .setSmallIcon(R.drawable.gdg)
                 .setLargeIcon(rawmap)
-                .setContentTitle("DevFest North")
+                .setContentTitle("DevFest North Central")
                 .setContentText(body)
                 .setPriority(Notification.PRIORITY_MAX)
                 .setStyle(new NotificationCompat.BigTextStyle())

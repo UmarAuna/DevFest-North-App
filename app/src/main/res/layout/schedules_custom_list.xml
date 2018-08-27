@@ -77,10 +77,11 @@
             android:layout_height="wrap_content"
             android:autoSizeTextType="uniform" />
 
-        <TextView android:textSize="18sp"
+        <TextView
             android:id="@+id/Swhere"
-            android:visibility="gone"
             android:text="Where"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="10sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoSizeTextType="uniform" />

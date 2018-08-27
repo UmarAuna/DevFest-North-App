@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -147,7 +148,7 @@ public class Speakers extends AppCompatActivity {
     private void setAdapter(final String searchedString) {
         databaseReference.child("Speakers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 /*
                  * Clear the list for every new search
                  * */
@@ -174,30 +175,32 @@ public class Speakers extends AppCompatActivity {
                     String Work = snapshot.child("Work").getValue(String.class);
 
 
-                    if (Name.toLowerCase().contains(searchedString.toLowerCase())) {
-                        AboutList.add(About);//About
-                        NameList.add(Photo);//Photo
-                        ProfilePicList.add(Work);//Work
-                        TopicList.add(Name);//Name
-                        TwitterList.add(Topic);//Topic
-                        WorkList.add(Twitter);//Twitter
+                    if (Name != null) {
+                        if (Name.toLowerCase().contains(searchedString.toLowerCase())) {
+                            AboutList.add(About);//About
+                            NameList.add(Photo);//Photo
+                            ProfilePicList.add(Work);//Work
+                            TopicList.add(Name);//Name
+                            TwitterList.add(Topic);//Topic
+                            WorkList.add(Twitter);//Twitter
 
-                        counter++;
-                    } else if (Twitter.toLowerCase().contains(searchedString.toLowerCase()) || Work.toLowerCase().contains(searchedString.toLowerCase()) ) {
-                        AboutList.add(About);//About
-                        NameList.add(Photo);//Photo
-                        ProfilePicList.add(Work);//Work
-                        TopicList.add(Name);//Name
-                        TwitterList.add(Topic);//Topic
-                        WorkList.add(Twitter);//Twitter
+                            counter++;
+                        } else if (Work != null && Twitter != null && (Twitter.toLowerCase().contains(searchedString.toLowerCase()) || Work.toLowerCase().contains(searchedString.toLowerCase()))) {
+                            AboutList.add(About);//About
+                            NameList.add(Photo);//Photo
+                            ProfilePicList.add(Work);//Work
+                            TopicList.add(Name);//Name
+                            TwitterList.add(Topic);//Topic
+                            WorkList.add(Twitter);//Twitter
 
-                        counter++;
+                            counter++;
+                        }
                     }
 
                     /*
                      * Get maximum of 20 searched results only
                      * */
-                    if (counter == 20)
+                    if (counter == 90)
                         break;
 
                     if (counter == 0){
@@ -212,15 +215,15 @@ public class Speakers extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(Speakers.this, "Unable to find data"+databaseError, Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(Speakers.this, "Unable to find data "+databaseError, Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void loadData(){
         databaseReference.child("Speakers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 /*
                  * Clear the list for every new search
                  * */
@@ -255,8 +258,8 @@ public class Speakers extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(Speakers.this, "Unable to find data"+databaseError, Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(Speakers.this, "Unable to find data "+databaseError, Toast.LENGTH_SHORT).show();
             }
         });
     }
