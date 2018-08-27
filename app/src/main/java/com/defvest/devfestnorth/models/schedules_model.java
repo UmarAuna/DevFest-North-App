@@ -1,7 +1,7 @@
 package com.defvest.devfestnorth.models;
 
 public class schedules_model {
-    String Title, Time, Image, When, Where, Speaker, Category;
+    private String Title, Time, Image, When, Where, Speaker, Category;
     public schedules_model() {
 
     }
