@@ -68,11 +68,15 @@
             android:textSize="15sp"
             android:autoSizeTextType="uniform"
             android:text="Twitter handle"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:elevation="50dp"
             android:textIsSelectable="true"
             android:textColor="#ffffff"
             android:fontFamily="monospace"
             android:id="@+id/SDtwitter"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp" />
 

@@ -14,6 +14,6 @@ public class CopyURLBroadcast extends BroadcastReceiver {
         String url = intent.getDataString();
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         clipboardManager.setPrimaryClip(ClipData.newPlainText("URL", url));
-        Toast.makeText(context, "Link is Copied",Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Link is copied",Toast.LENGTH_SHORT).show();
     }
 }
