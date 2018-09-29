@@ -29,7 +29,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // ...
 
-        // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: " + remoteMessage.getFrom());
 
@@ -49,7 +48,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
         //sintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this,(int) System.currentTimeMillis(),sintent,0);
-        //Todo: Change notification icon
         Bitmap rawmap = BitmapFactory.decodeResource(getResources(), R.drawable.gdg);
         //Set sound of notification
         Uri notificationsound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -95,7 +93,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
         //Set sound of notification
         Uri notificationsound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        //Todo: Change notification icon
         Bitmap rawmap = BitmapFactory.decodeResource(getResources(), R.drawable.gdg);
 
         NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
