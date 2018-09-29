@@ -67,9 +67,7 @@ public class Speakers extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
         if (isNetworkConnected() || isWifiConnected()) {
-
-            //TODO: Remove Toast
-            Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("No Internet Connection")
