@@ -24,6 +24,7 @@ import java.util.TimerTask;
                 Intent nextIntent = new Intent(WelcomeScreen.this,MainActivity.class);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 startActivity(nextIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
             }
         };
