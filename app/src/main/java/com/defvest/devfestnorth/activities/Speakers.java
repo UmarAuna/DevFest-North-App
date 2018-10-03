@@ -73,7 +73,7 @@ public class Speakers extends AppCompatActivity {
                     .setTitle("No Internet Connection")
                     .setCancelable(false)
                     .setMessage("It looks like your internet connection is off. Please turn it " +
-                            "on or some features might not work")
+                            "on if you are opening this app for the first time its need to get some data's online")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                         }
