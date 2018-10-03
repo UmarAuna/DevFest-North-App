@@ -99,8 +99,8 @@ public class SpeakersDetail extends AppCompatActivity {
         customtabIntent.setToolbarColor(ContextCompat.getColor(this,R.color.colorPrimary));
         customtabIntent.setShowTitle(true);
         customtabIntent.addDefaultShareMenuItem();
-        /*customtabIntent.setStartAnimations(this, R.anim.left_in, R.anim.left_out);
-        customtabIntent.setExitAnimations(this, R.anim.right_in, R.anim.right_out);*/
+        customtabIntent.setStartAnimations(this, R.anim.left_in, R.anim.left_out);
+        customtabIntent.setExitAnimations(this, R.anim.right_in, R.anim.right_out);
         Intent copyIntent = new Intent(this,CopyURLBroadcast.class);
         PendingIntent copypendingIntent = PendingIntent.getBroadcast(this,0, copyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
