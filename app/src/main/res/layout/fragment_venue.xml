@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:background="#dedede"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/list_venue_error"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:textColor="#dedede"
+        android:padding="1dp"
+        android:background="#EA4335"
+        android:text="No internet connection"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -57,3 +83,4 @@
 
 </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

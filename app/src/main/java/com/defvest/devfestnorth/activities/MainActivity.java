@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     .setTitle("No Internet Connection")
                     .setCancelable(false)
                     .setMessage("It looks like your Internet Connection is off. Please turn it " +
-                            "on if you are opening this app for the first time its need to get some data's online")
+                            "ON if you are opening this app for the first time its need to get some data's online")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                         }

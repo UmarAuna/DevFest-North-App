@@ -2,8 +2,11 @@ package com.defvest.devfestnorth.fragments;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -43,7 +46,7 @@ public class Venue extends Fragment {
     final Double[] longitu = {6.5673995};
     String title ="Getting Venue.....";
     String About,Address;
-    TextView Addresses, Abouts;
+    TextView Addresses, Abouts, mEmptyListView;
 
     public static Venue newInstance() {
         Venue fragment = new Venue();
@@ -70,6 +73,14 @@ public class Venue extends Fragment {
         mapView = rootview.findViewById(R.id.mapvenue);
         Addresses = rootview.findViewById(R.id.mapAddress);
         Abouts = rootview.findViewById(R.id.mapAbout);
+        mEmptyListView = rootview.findViewById(R.id.list_venue_error);
+
+
+        if (isNetworkConnected() || isWifiConnected()) {
+            /*Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();*/
+        } else {
+            mEmptyListView.setVisibility(View.VISIBLE);
+        }
 
         try{
             DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("Details");
@@ -173,5 +184,21 @@ public class Venue extends Fragment {
         super.onLowMemory();
         mapView.onLowMemory();
 
+    }
+
+    private boolean isWifiConnected() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE); // 1
+        assert connMgr != null;
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo(); // 2
+        return networkInfo != null && networkInfo.isConnected(); // 3
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connMgr != null;
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return networkInfo != null && (ConnectivityManager.TYPE_WIFI == networkInfo.getType()) && networkInfo.isConnected();
     }
 }

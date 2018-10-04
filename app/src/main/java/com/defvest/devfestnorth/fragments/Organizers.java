@@ -3,9 +3,13 @@ package com.defvest.devfestnorth.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,6 +28,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +41,7 @@ import com.google.firebase.database.FirebaseDatabase;
     private FirebaseRecyclerAdapter<organizers_model, OrganisersView> firebaserecyclerAdapter;
     private RecyclerView recyclerView;
     private DatabaseReference myref;
+    private TextView mEmptyListView;
     public static Organizers newInstance(){
         Organizers fragment = new Organizers();
         return fragment;
@@ -56,10 +63,18 @@ import com.google.firebase.database.FirebaseDatabase;
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_organizers, container, false);
         recyclerView = rootView.findViewById(R.id.recycle);
+        mEmptyListView = rootView.findViewById(R.id.list_organizers_error);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         myref = FirebaseDatabase.getInstance().getReference().child("Organizers");
         myref.keepSynced(true);
+
+        if (isNetworkConnected() || isWifiConnected()) {
+            /*Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();*/
+        } else {
+           mEmptyListView.setVisibility(View.VISIBLE);
+        }
+
         FirebaseRecyclerOptions<organizers_model> options = new FirebaseRecyclerOptions.Builder<organizers_model>().setQuery(myref,organizers_model.class).build();
 
         firebaserecyclerAdapter = new FirebaseRecyclerAdapter<organizers_model, OrganisersView>(options) {
@@ -145,6 +160,22 @@ import com.google.firebase.database.FirebaseDatabase;
     public void onStop() {
         super.onStop();
         firebaserecyclerAdapter.stopListening();
+    }
+
+    private boolean isWifiConnected() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+              getActivity().getSystemService(Context.CONNECTIVITY_SERVICE); // 1
+        assert connMgr != null;
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo(); // 2
+        return networkInfo != null && networkInfo.isConnected(); // 3
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+               getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connMgr != null;
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return networkInfo != null && (ConnectivityManager.TYPE_WIFI == networkInfo.getType()) && networkInfo.isConnected();
     }
 
 
