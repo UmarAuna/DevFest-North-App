@@ -43,8 +43,8 @@ public class Speakers extends AppCompatActivity {
     ArrayList<String> TwitterList;
 
     Speaker_Adapter searchAdapter;
-    ImageView Back,Clear;
-    TextView error;
+    ImageView Back,Clear,Nodata;
+    TextView error,  mEmptyListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,8 @@ public class Speakers extends AppCompatActivity {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mEmptyListView = findViewById(R.id.list_speaker_error);
+        Nodata = findViewById(R.id.nodatahoto);
         Back = findViewById(R.id.imgback);
         Clear = findViewById(R.id.imgclear);
         error = findViewById(R.id.error);
@@ -69,11 +71,12 @@ public class Speakers extends AppCompatActivity {
         if (isNetworkConnected() || isWifiConnected()) {
             //Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();
         } else {
+            mEmptyListView.setVisibility(View.VISIBLE);
             new AlertDialog.Builder(this)
                     .setTitle("No Internet Connection")
                     .setCancelable(false)
                     .setMessage("It looks like your internet connection is off. Please turn it " +
-                            "on if you are opening this app for the first time its need to get some data's online")
+                            "ON if you are opening this app for the first time its need to get some data's online")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                         }
@@ -128,6 +131,7 @@ public class Speakers extends AppCompatActivity {
 
                             Clear.setVisibility(View.INVISIBLE);
                             error.setVisibility(View.GONE);
+                            Nodata.setVisibility(View.GONE);
 
                         }
                     });
@@ -138,6 +142,7 @@ public class Speakers extends AppCompatActivity {
                     loadData();
                     Clear.setVisibility(View.INVISIBLE);
                     error.setVisibility(View.GONE);
+                    Nodata.setVisibility(View.GONE);
                 }
             }
         });
@@ -196,15 +201,17 @@ public class Speakers extends AppCompatActivity {
                     }
 
                     /*
-                     * Get maximum of 20 searched results only
+                     * Get maximum of 90 searched results only
                      * */
                     if (counter == 90)
                         break;
 
                     if (counter == 0){
                        error.setVisibility(View.VISIBLE);
+                       Nodata.setVisibility(View.VISIBLE);
                     }else{
                         error.setVisibility(View.GONE);
+                        Nodata.setVisibility(View.GONE);
                     }
                 }
 

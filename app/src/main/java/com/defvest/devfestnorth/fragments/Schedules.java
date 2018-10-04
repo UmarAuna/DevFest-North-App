@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,6 +42,7 @@ public class Schedules extends Fragment {
     private FirebaseRecyclerAdapter<schedules_model, ScheduleViews> firebaserecyclerAdapter;
     private RecyclerView recyclerView;
     private DatabaseReference myref;
+    TextView   mEmptyListView;
     public static Schedules newInstance(){
         Schedules fragment = new Schedules();
         return fragment;
@@ -61,11 +64,19 @@ public class Schedules extends Fragment {
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_schedules, container, false);
         recyclerView = rootView.findViewById(R.id.recycle_schedules);
+        mEmptyListView = rootView.findViewById(R.id.list_schedules_error);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         myref = FirebaseDatabase.getInstance().getReference().child("Agenda");
         myref.keepSynced(true);
+
+        if (isNetworkConnected() || isWifiConnected()) {
+            /*Toast.makeText(this, "Network is Available", Toast.LENGTH_SHORT).show();*/
+        } else {
+            mEmptyListView.setVisibility(View.VISIBLE);
+        }
+
         FirebaseRecyclerOptions<schedules_model> options = new FirebaseRecyclerOptions.Builder<schedules_model>().setQuery(myref,schedules_model.class).build();
 
         firebaserecyclerAdapter = new FirebaseRecyclerAdapter<schedules_model, ScheduleViews>(options) {
@@ -182,6 +193,22 @@ public class Schedules extends Fragment {
     public void onStop() {
         super.onStop();
         firebaserecyclerAdapter.stopListening();
+    }
+
+    private boolean isWifiConnected() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE); // 1
+        assert connMgr != null;
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo(); // 2
+        return networkInfo != null && networkInfo.isConnected(); // 3
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connMgr != null;
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return networkInfo != null && (ConnectivityManager.TYPE_WIFI == networkInfo.getType()) && networkInfo.isConnected();
     }
 
 

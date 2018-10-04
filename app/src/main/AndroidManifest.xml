@@ -43,9 +43,11 @@
             android:theme="@style/Theme.custom" />
         <activity
             android:name=".activities.Speakers"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2.NoActionBar" />
         <activity
             android:name=".activities.SpeakersDetail"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.custom" />
 
 
