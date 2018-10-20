@@ -10,6 +10,7 @@
     android:background="#dedede"
     tools:context=".activities.WelcomeScreen">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
