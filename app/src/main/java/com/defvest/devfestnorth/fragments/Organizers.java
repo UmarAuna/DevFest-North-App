@@ -127,10 +127,10 @@ import java.util.Objects;
         public OrganisersView(View itemView) {
             super(itemView);
             mView = itemView;
-            name = (TextView) itemView.findViewById(R.id.vname);
-            gdg = (TextView) itemView.findViewById(R.id.vgdg);
+            name = itemView.findViewById(R.id.vname);
+            gdg = itemView.findViewById(R.id.vgdg);
             photo=  itemView.findViewById(R.id.profile_photo);
-            about= (TextView) itemView.findViewById(R.id.vabout);
+            about= itemView.findViewById(R.id.vabout);
         }
 
         public void setName(String names) {
