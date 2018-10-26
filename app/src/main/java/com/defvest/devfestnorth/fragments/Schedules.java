@@ -2,7 +2,6 @@ package com.defvest.devfestnorth.fragments;
 
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -15,16 +14,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
-import com.defvest.devfestnorth.activities.OrganizersDetail;
 import com.defvest.devfestnorth.activities.SchedulesDetail;
-import com.defvest.devfestnorth.models.organizers_model;
-import com.defvest.devfestnorth.models.schedules_model;
+import com.defvest.devfestnorth.models.SchedulesModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -40,7 +36,7 @@ public class Schedules extends Fragment {
     View rootView;
     Context context;
 
-    private FirebaseRecyclerAdapter<schedules_model, ScheduleViews> firebaserecyclerAdapter;
+    private FirebaseRecyclerAdapter<SchedulesModel, ScheduleViews> firebaserecyclerAdapter;
     TextView   mEmptyListView;
     public static Schedules newInstance(){
         return new Schedules();
@@ -75,14 +71,14 @@ public class Schedules extends Fragment {
             mEmptyListView.setVisibility(View.VISIBLE);
         }
 
-        FirebaseRecyclerOptions<schedules_model> options = new FirebaseRecyclerOptions.Builder<schedules_model>().setQuery(myref,schedules_model.class).build();
+        FirebaseRecyclerOptions<SchedulesModel> options = new FirebaseRecyclerOptions.Builder<SchedulesModel>().setQuery(myref,SchedulesModel.class).build();
 
-        firebaserecyclerAdapter = new FirebaseRecyclerAdapter<schedules_model, ScheduleViews>(options) {
+        firebaserecyclerAdapter = new FirebaseRecyclerAdapter<SchedulesModel, ScheduleViews>(options) {
 
 
             @SuppressLint("CheckResult")
             @Override
-            protected void onBindViewHolder(@NonNull ScheduleViews viewholder, final int position, final schedules_model model) {
+            protected void onBindViewHolder(@NonNull ScheduleViews viewholder, final int position, final SchedulesModel model) {
                 viewholder.setTitle(model.getTitle());
                 viewholder.setTime(model.getTime());
                 viewholder.setWhen(model.getWhen());

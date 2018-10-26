@@ -3,13 +3,11 @@ package com.defvest.devfestnorth.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,13 +20,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
 import com.defvest.devfestnorth.activities.OrganizersDetail;
-import com.defvest.devfestnorth.models.organizers_model;
+import com.defvest.devfestnorth.models.OrganizersModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Objects;
 
 
 /**
@@ -38,7 +34,7 @@ import java.util.Objects;
     View rootView;
     Context context;
 
-    private FirebaseRecyclerAdapter<organizers_model, OrganisersView> firebaserecyclerAdapter;
+    private FirebaseRecyclerAdapter<OrganizersModel, OrganisersView> firebaserecyclerAdapter;
 
     public static Organizers newInstance(){
         return new Organizers();
@@ -72,15 +68,15 @@ import java.util.Objects;
            mEmptyListView.setVisibility(View.VISIBLE);
         }
 
-        FirebaseRecyclerOptions<organizers_model> options = new FirebaseRecyclerOptions.Builder<organizers_model>().setQuery(myref,organizers_model.class).build();
+        FirebaseRecyclerOptions<OrganizersModel> options = new FirebaseRecyclerOptions.Builder<OrganizersModel>().setQuery(myref,OrganizersModel.class).build();
 
-        firebaserecyclerAdapter = new FirebaseRecyclerAdapter<organizers_model, OrganisersView>(options) {
+        firebaserecyclerAdapter = new FirebaseRecyclerAdapter<OrganizersModel, OrganisersView>(options) {
 
 
 
             @SuppressLint("CheckResult")
             @Override
-            protected void onBindViewHolder(OrganisersView viewholder, final int position, final organizers_model model) {
+            protected void onBindViewHolder(OrganisersView viewholder, final int position, final OrganizersModel model) {
                 viewholder.setName(model.getName());
                 viewholder.setGDG(model.getGDG());
                 RequestOptions placeholderRequest = new RequestOptions();

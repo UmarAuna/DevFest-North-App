@@ -6,36 +6,28 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.defvest.devfestnorth.R;
-import com.defvest.devfestnorth.models.feeds_model;
+import com.defvest.devfestnorth.models.FeedsModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.time.LocalDateTime;
-import java.util.Locale;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Feeds extends Fragment {
-    private FirebaseRecyclerAdapter<feeds_model, FeedsViewHolder> firebaseRecyclerAdapter;
+    private FirebaseRecyclerAdapter<FeedsModel, FeedsViewHolder> firebaseRecyclerAdapter;
     View rootView;
     TextView  mEmptyListView;
 
@@ -79,10 +71,10 @@ public class Feeds extends Fragment {
             mEmptyListView.setVisibility(View.VISIBLE);
         }
 
-        FirebaseRecyclerOptions<feeds_model> options = new FirebaseRecyclerOptions.Builder<feeds_model>().setQuery(myref,feeds_model.class).build();
-        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<feeds_model, FeedsViewHolder>(options) {
+        FirebaseRecyclerOptions<FeedsModel> options = new FirebaseRecyclerOptions.Builder<FeedsModel>().setQuery(myref,FeedsModel.class).build();
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<FeedsModel, FeedsViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull FeedsViewHolder holder, int position, @NonNull feeds_model model) {
+            protected void onBindViewHolder(@NonNull FeedsViewHolder holder, int position, @NonNull FeedsModel model) {
                 holder.setTitle(model.getTitle());
                 holder.setContent(model.getContent());
                 holder.setTime(model.getTime());

@@ -1,15 +1,15 @@
 package com.defvest.devfestnorth.models;
 
-public class feeds_model {
+public class FeedsModel {
     private String Title, Content, Time;
 
-    public feeds_model(String title, String content, String time) {
+    public FeedsModel(String title, String content, String time) {
         Title = title;
         Content = content;
         Time = time;
     }
 
-    public feeds_model() {
+    public FeedsModel() {
 
     }
 

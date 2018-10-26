@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.defvest.devfestnorth.R;
-import com.defvest.devfestnorth.adapters.Speaker_Adapter;
+import com.defvest.devfestnorth.adapters.SpeakerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,7 +42,7 @@ public class Speakers extends AppCompatActivity {
     ArrayList<String> AboutList;
     ArrayList<String> TwitterList;
 
-    Speaker_Adapter searchAdapter;
+    SpeakerAdapter searchAdapter;
     ImageView Back,Clear,Nodata;
     TextView error,  mEmptyListView;
 
@@ -215,7 +215,7 @@ public class Speakers extends AppCompatActivity {
                     }
                 }
 
-                searchAdapter = new Speaker_Adapter(Speakers.this, NameList,TopicList,WorkList, ProfilePicList,AboutList, TwitterList);
+                searchAdapter = new SpeakerAdapter(Speakers.this, NameList,TopicList,WorkList, ProfilePicList,AboutList, TwitterList);
                 recyclerView.setAdapter(searchAdapter);
             }
 
@@ -258,7 +258,7 @@ public class Speakers extends AppCompatActivity {
 
                 }
 
-                searchAdapter = new Speaker_Adapter(Speakers.this, NameList,TopicList,WorkList, ProfilePicList,AboutList, TwitterList);
+                searchAdapter = new SpeakerAdapter(Speakers.this, NameList,TopicList,WorkList, ProfilePicList,AboutList, TwitterList);
                 recyclerView.setAdapter(searchAdapter);
             }
 
