@@ -7,9 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -20,7 +18,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Speaker_Adapter extends RecyclerView.Adapter<Speaker_Adapter.SearchViewHolder> {
+public class SpeakerAdapter extends RecyclerView.Adapter<SpeakerAdapter.SearchViewHolder> {
     Context context;
     ArrayList<String> NameList;
     ArrayList<String> TopicList;
@@ -47,8 +45,8 @@ public class Speaker_Adapter extends RecyclerView.Adapter<Speaker_Adapter.Search
         }
     }
 
-    public Speaker_Adapter(Context context, ArrayList<String> profilePicList, ArrayList<String> NameList, ArrayList<String> TwitterList, ArrayList<String> WorkList, ArrayList<String>AboutList,
-                           ArrayList<String>TopicList) {
+    public SpeakerAdapter(Context context, ArrayList<String> profilePicList, ArrayList<String> NameList, ArrayList<String> TwitterList, ArrayList<String> WorkList, ArrayList<String>AboutList,
+                          ArrayList<String>TopicList) {
         this.context = context;
         this.ProfilePicList = profilePicList;
         this.NameList = NameList;
@@ -61,9 +59,9 @@ public class Speaker_Adapter extends RecyclerView.Adapter<Speaker_Adapter.Search
     }
 
     @Override
-    public Speaker_Adapter.SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SpeakerAdapter.SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.speakers_custom_list, parent, false);
-        return new Speaker_Adapter.SearchViewHolder(view);
+        return new SpeakerAdapter.SearchViewHolder(view);
     }
 
     @Override

@@ -1,12 +1,12 @@
 package com.defvest.devfestnorth.models;
 
-public class schedules_model {
+public class SchedulesModel {
     private String Title, Time, Image, When, Where, Speaker, Category;
-    public schedules_model() {
+    public SchedulesModel() {
 
     }
 
-    public schedules_model(String title, String time, String image, String when, String where, String speaker, String category) {
+    public SchedulesModel(String title, String time, String image, String when, String where, String speaker, String category) {
         Title = title;
         Time = time;
         Image = image;

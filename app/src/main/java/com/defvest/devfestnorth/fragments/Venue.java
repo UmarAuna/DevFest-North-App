@@ -49,8 +49,7 @@ public class Venue extends Fragment {
     TextView Addresses, Abouts, mEmptyListView;
 
     public static Venue newInstance() {
-        Venue fragment = new Venue();
-        return fragment;
+        return new Venue();
     }
 
     public Venue() {

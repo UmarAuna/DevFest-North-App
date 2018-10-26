@@ -2,28 +2,25 @@ package com.defvest.devfestnorth.fragments;
 
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
-import com.defvest.devfestnorth.activities.OrganizersDetail;
 import com.defvest.devfestnorth.activities.SchedulesDetail;
-import com.defvest.devfestnorth.models.organizers_model;
-import com.defvest.devfestnorth.models.schedules_model;
+import com.defvest.devfestnorth.models.SchedulesModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -39,13 +36,10 @@ public class Schedules extends Fragment {
     View rootView;
     Context context;
 
-    private FirebaseRecyclerAdapter<schedules_model, ScheduleViews> firebaserecyclerAdapter;
-    private RecyclerView recyclerView;
-    private DatabaseReference myref;
+    private FirebaseRecyclerAdapter<SchedulesModel, ScheduleViews> firebaserecyclerAdapter;
     TextView   mEmptyListView;
     public static Schedules newInstance(){
-        Schedules fragment = new Schedules();
-        return fragment;
+        return new Schedules();
     }
     public Schedules() {
         // Required empty public constructor
@@ -59,16 +53,16 @@ public class Schedules extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_schedules, container, false);
-        recyclerView = rootView.findViewById(R.id.recycle_schedules);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycle_schedules);
         mEmptyListView = rootView.findViewById(R.id.list_schedules_error);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-        myref = FirebaseDatabase.getInstance().getReference().child("Agenda");
+        DatabaseReference myref = FirebaseDatabase.getInstance().getReference().child("Agenda");
         myref.keepSynced(true);
 
         if (isNetworkConnected() || isWifiConnected()) {
@@ -77,14 +71,14 @@ public class Schedules extends Fragment {
             mEmptyListView.setVisibility(View.VISIBLE);
         }
 
-        FirebaseRecyclerOptions<schedules_model> options = new FirebaseRecyclerOptions.Builder<schedules_model>().setQuery(myref,schedules_model.class).build();
+        FirebaseRecyclerOptions<SchedulesModel> options = new FirebaseRecyclerOptions.Builder<SchedulesModel>().setQuery(myref,SchedulesModel.class).build();
 
-        firebaserecyclerAdapter = new FirebaseRecyclerAdapter<schedules_model, ScheduleViews>(options) {
+        firebaserecyclerAdapter = new FirebaseRecyclerAdapter<SchedulesModel, ScheduleViews>(options) {
 
 
             @SuppressLint("CheckResult")
             @Override
-            protected void onBindViewHolder(ScheduleViews viewholder, final int position, final schedules_model model) {
+            protected void onBindViewHolder(@NonNull ScheduleViews viewholder, final int position, final SchedulesModel model) {
                 viewholder.setTitle(model.getTitle());
                 viewholder.setTime(model.getTime());
                 viewholder.setWhen(model.getWhen());
@@ -119,7 +113,7 @@ public class Schedules extends Fragment {
             }
 
             @Override
-            public ScheduleViews onCreateViewHolder(ViewGroup parent, int viewType) {
+            public ScheduleViews onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.schedules_custom_list,parent,false);
                 return new ScheduleViews(v);
             }
@@ -140,7 +134,7 @@ public class Schedules extends Fragment {
         CircleImageView image;
 
 
-        public ScheduleViews(View itemView) {
+        ScheduleViews(View itemView) {
             super(itemView);
             mView = itemView;
             title = (TextView) itemView.findViewById(R.id.Stitle);
@@ -165,7 +159,7 @@ public class Schedules extends Fragment {
         public void setWhere(String wheres) {
             where.setText(wheres);
         }
-        public void setSpeaker(String speakers) {
+        void setSpeaker(String speakers) {
             speaker.setText(speakers);
         }
         public void setCategory(String categories) {

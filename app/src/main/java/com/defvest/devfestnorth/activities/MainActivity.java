@@ -18,13 +18,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.defvest.devfestnorth.R;
 import com.defvest.devfestnorth.adapters.CopyURLBroadcast;
-import com.defvest.devfestnorth.adapters.Speaker_Adapter;
 import com.defvest.devfestnorth.fragments.Feeds;
 import com.defvest.devfestnorth.fragments.Organizers;
 import com.defvest.devfestnorth.fragments.Schedules;

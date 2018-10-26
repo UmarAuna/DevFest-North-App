@@ -1,13 +1,13 @@
 package com.defvest.devfestnorth.models;
 
-public class organizers_model {
+public class OrganizersModel {
     private String Name, GDG, Photo, About;
 
-    public organizers_model() {
+    public OrganizersModel() {
 
     }
 
-    public organizers_model(String Name, String GDG, String Photo, String About) {
+    public OrganizersModel(String Name, String GDG, String Photo, String About) {
         this.Name = Name;
         this.GDG   = GDG;
         this.Photo = Photo;
