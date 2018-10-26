@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -59,7 +60,7 @@ public class Schedules extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_schedules, container, false);
@@ -84,7 +85,7 @@ public class Schedules extends Fragment {
 
             @SuppressLint("CheckResult")
             @Override
-            protected void onBindViewHolder(ScheduleViews viewholder, final int position, final schedules_model model) {
+            protected void onBindViewHolder(@NonNull ScheduleViews viewholder, final int position, final schedules_model model) {
                 viewholder.setTitle(model.getTitle());
                 viewholder.setTime(model.getTime());
                 viewholder.setWhen(model.getWhen());
@@ -119,7 +120,7 @@ public class Schedules extends Fragment {
             }
 
             @Override
-            public ScheduleViews onCreateViewHolder(ViewGroup parent, int viewType) {
+            public ScheduleViews onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.schedules_custom_list,parent,false);
                 return new ScheduleViews(v);
             }
