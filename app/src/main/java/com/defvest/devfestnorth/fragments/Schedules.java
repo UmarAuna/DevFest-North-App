@@ -41,12 +41,9 @@ public class Schedules extends Fragment {
     Context context;
 
     private FirebaseRecyclerAdapter<schedules_model, ScheduleViews> firebaserecyclerAdapter;
-    private RecyclerView recyclerView;
-    private DatabaseReference myref;
     TextView   mEmptyListView;
     public static Schedules newInstance(){
-        Schedules fragment = new Schedules();
-        return fragment;
+        return new Schedules();
     }
     public Schedules() {
         // Required empty public constructor
@@ -64,12 +61,12 @@ public class Schedules extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_schedules, container, false);
-        recyclerView = rootView.findViewById(R.id.recycle_schedules);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycle_schedules);
         mEmptyListView = rootView.findViewById(R.id.list_schedules_error);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-        myref = FirebaseDatabase.getInstance().getReference().child("Agenda");
+        DatabaseReference myref = FirebaseDatabase.getInstance().getReference().child("Agenda");
         myref.keepSynced(true);
 
         if (isNetworkConnected() || isWifiConnected()) {
@@ -141,7 +138,7 @@ public class Schedules extends Fragment {
         CircleImageView image;
 
 
-        public ScheduleViews(View itemView) {
+        ScheduleViews(View itemView) {
             super(itemView);
             mView = itemView;
             title = (TextView) itemView.findViewById(R.id.Stitle);
@@ -166,7 +163,7 @@ public class Schedules extends Fragment {
         public void setWhere(String wheres) {
             where.setText(wheres);
         }
-        public void setSpeaker(String speakers) {
+        void setSpeaker(String speakers) {
             speaker.setText(speakers);
         }
         public void setCategory(String categories) {
