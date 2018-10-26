@@ -43,8 +43,7 @@ public class Feeds extends Fragment {
 
 
     public static Feeds newInstance(){
-        Feeds fragment = new Feeds();
-        return fragment;
+        return new Feeds();
     }
     public Feeds() {
         // Required empty public constructor
