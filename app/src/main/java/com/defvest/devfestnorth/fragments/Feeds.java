@@ -36,8 +36,6 @@ import java.util.Locale;
  */
 public class Feeds extends Fragment {
     private FirebaseRecyclerAdapter<feeds_model, FeedsViewHolder> firebaseRecyclerAdapter;
-    private RecyclerView recyclerView;
-    private DatabaseReference myref;
     View rootView;
     TextView  mEmptyListView;
 
@@ -60,7 +58,7 @@ public class Feeds extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_feeds, container, false);
-        recyclerView = rootView.findViewById(R.id.recycle_feeds);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycle_feeds);
         mEmptyListView = rootView.findViewById(R.id.list_feeds_error);
         recyclerView.setHasFixedSize(true);
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
@@ -72,7 +70,7 @@ public class Feeds extends Fragment {
         recyclerView.smoothScrollToPosition(0);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        myref = FirebaseDatabase.getInstance().getReference().child("Post");
+        DatabaseReference myref = FirebaseDatabase.getInstance().getReference().child("Post");
         myref.keepSynced(true);
 
         if (isNetworkConnected() || isWifiConnected()) {

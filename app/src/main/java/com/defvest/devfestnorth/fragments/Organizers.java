@@ -39,12 +39,9 @@ import java.util.Objects;
     Context context;
 
     private FirebaseRecyclerAdapter<organizers_model, OrganisersView> firebaserecyclerAdapter;
-    private RecyclerView recyclerView;
-    private DatabaseReference myref;
-    private TextView mEmptyListView;
+
     public static Organizers newInstance(){
-        Organizers fragment = new Organizers();
-        return fragment;
+        return new Organizers();
     }
     public Organizers() {
         // Required empty public constructor
@@ -62,11 +59,11 @@ import java.util.Objects;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_organizers, container, false);
-        recyclerView = rootView.findViewById(R.id.recycle);
-        mEmptyListView = rootView.findViewById(R.id.list_organizers_error);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycle);
+        TextView mEmptyListView = rootView.findViewById(R.id.list_organizers_error);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        myref = FirebaseDatabase.getInstance().getReference().child("Organizers");
+        DatabaseReference myref = FirebaseDatabase.getInstance().getReference().child("Organizers");
         myref.keepSynced(true);
 
         if (isNetworkConnected() || isWifiConnected()) {
@@ -124,7 +121,7 @@ import java.util.Objects;
         ImageView photo;
         TextView about;
 
-        public OrganisersView(View itemView) {
+        OrganisersView(View itemView) {
             super(itemView);
             mView = itemView;
             name = (TextView) itemView.findViewById(R.id.vname);
@@ -136,7 +133,7 @@ import java.util.Objects;
         public void setName(String names) {
             name.setText(names);
         }
-        public void setGDG(String gdgs) {
+        void setGDG(String gdgs) {
             gdg.setText(gdgs);
         }
         @SuppressLint("CheckResult")
