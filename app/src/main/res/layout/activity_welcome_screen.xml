@@ -10,6 +10,7 @@
     android:background="#dedede"
     tools:context=".activities.WelcomeScreen">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
@@ -56,7 +57,7 @@
         android:layout_marginBottom="100dp"
         android:autoSizeTextType="uniform"
         android:fontFamily="casual"
-        android:text="version 1.0.0"
+        android:text="version 0.8.9-beta"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"
