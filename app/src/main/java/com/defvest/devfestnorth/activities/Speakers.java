@@ -51,8 +51,8 @@ public class Speakers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speakers);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        search_edit_text = findViewById(R.id.search_edit_text);
-        recyclerView = findViewById(R.id.recyclerView);
+        search_edit_text = (EditText) findViewById(R.id.search_edit_text);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mEmptyListView = findViewById(R.id.list_speaker_error);
         Nodata = findViewById(R.id.nodatahoto);
         Back = findViewById(R.id.imgback);

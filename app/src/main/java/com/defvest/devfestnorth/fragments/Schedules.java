@@ -143,12 +143,12 @@ public class Schedules extends Fragment {
         public ScheduleViews(View itemView) {
             super(itemView);
             mView = itemView;
-            title = itemView.findViewById(R.id.Stitle);
-            time = itemView.findViewById(R.id.Stime);
-            when = itemView.findViewById(R.id.Swhen);
-            where = itemView.findViewById(R.id.Swhere);
-            speaker = itemView.findViewById(R.id.Sspeaker);
-            category = itemView.findViewById(R.id.Scategory);
+            title = (TextView) itemView.findViewById(R.id.Stitle);
+            time = (TextView) itemView.findViewById(R.id.Stime);
+            when = (TextView) itemView.findViewById(R.id.Swhen);
+            where = (TextView) itemView.findViewById(R.id.Swhere);
+            speaker = (TextView) itemView.findViewById(R.id.Sspeaker);
+            category = (TextView) itemView.findViewById(R.id.Scategory);
 
             image=  itemView.findViewById(R.id.Sphoto);
         }
