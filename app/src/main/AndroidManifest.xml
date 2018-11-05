@@ -48,6 +48,7 @@
         <activity
             android:name=".activities.SpeakersDetail"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:theme="@style/Theme.custom" />
 
 
