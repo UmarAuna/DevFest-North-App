@@ -42,8 +42,8 @@ public class Venue extends Fragment {
     MapView mapView;
     View rootview;
 
-    final Double[] latitu = {9.5816055};
-    final Double[] longitu = {6.5673995};
+    final Double[] latitu = {9.0744357};
+    final Double[] longitu = {7.472982};
     String title ="Getting Venue.....";
     String About,Address;
     TextView Addresses, Abouts, mEmptyListView;
@@ -110,24 +110,21 @@ public class Venue extends Fragment {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(final GoogleMap googleMap) {
-               /*try{
+               try{
                     boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getActivity(),R.raw.style_json));
                     if(!success){
                         Toast.makeText(getContext(), "Can't Load Map", Toast.LENGTH_SHORT).show();
                     }
                 }catch (Resources.NotFoundException e){
                     Toast.makeText(getContext(), " "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }*/
-                int permission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION);
+                }
+               /* int permission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION);
 
                 if (permission != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(
                             getActivity(),
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},2);
-                }
-
-
-
+                }*/
                 try {
                     googleMap.setMyLocationEnabled(true);
                     googleMap.setBuildingsEnabled(true);
@@ -140,7 +137,7 @@ public class Venue extends Fragment {
                 }
                 catch (SecurityException e) {
                     Log.d("Security exception","location not enabled");
-                    Toast.makeText(getContext(),"Locaton not Enabled",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(),"Locaton not Enabled",Toast.LENGTH_SHORT).show();
                 }
 
                 try{
@@ -184,6 +181,18 @@ public class Venue extends Fragment {
         super.onLowMemory();
         mapView.onLowMemory();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
     }
 
     private boolean isWifiConnected() {
