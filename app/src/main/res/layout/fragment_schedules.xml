@@ -22,17 +22,19 @@
         android:text="No internet connection"
         android:textSize="12sp"
         android:visibility="gone" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#dedede"
-        android:padding="10dp"
-        android:orientation="vertical">
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycle_schedules">
-    </android.support.v7.widget.RecyclerView>
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_schedules"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
 </LinearLayout>

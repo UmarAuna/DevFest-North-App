@@ -38,9 +38,9 @@ public class Speaker_Adapter extends RecyclerView.Adapter<Speaker_Adapter.Search
         public SearchViewHolder(View itemView) {
             super(itemView);
             profileImage = itemView.findViewById(R.id.query_image);
-            name = (TextView) itemView.findViewById(R.id.names);
-            twitter = (TextView) itemView.findViewById(R.id.twitters);
-            work = (TextView)itemView.findViewById(R.id.works);
+            name = itemView.findViewById(R.id.names);
+            twitter = itemView.findViewById(R.id.twitters);
+            work = itemView.findViewById(R.id.works);
 
             aboutmodel = itemView.findViewById(R.id.abouts);
             topicmodel = itemView.findViewById(R.id.topics);
