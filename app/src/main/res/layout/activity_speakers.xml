@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
             android:background="@color/colorPrimary"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:padding="4dp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:drawablePadding="22dp"
                 android:gravity="left|center"
                 android:layout_margin="1dp"
-                android:padding="4dp">
+                android:padding="2dp">
 
                 <EditText
                     android:id="@+id/search_edit_text"
@@ -38,13 +38,17 @@
                     android:layout_toLeftOf="@+id/imgclear"
                     android:layout_toRightOf="@+id/imgback"
                     android:layout_toStartOf="@+id/imgclear"
-                    android:backgroundTint="#ffffff"
+                    android:cursorVisible="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:backgroundTint="@color/colorPrimary"
                     android:drawablePadding="22dp"
                     android:gravity="left|center"
                     android:hint="Search Speakers"
                     android:inputType="text"
-                    android:textColor="#00B0FF"
-                    android:textColorHint="#00B0FF" />
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff" />
+                <requestFocus />
 
                 <ImageView
                     android:id="@+id/imgclear"
