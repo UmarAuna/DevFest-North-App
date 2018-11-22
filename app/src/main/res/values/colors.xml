@@ -5,4 +5,6 @@
     <color name="colorAccent">#00B0FF</color>
     <color name="colornavigationbutton">#0277BD</color>
     <color name="colortab">#3a91c1</color>
+    <color name="textDark">#403E41</color>
+    <color name="textLight">#7E7D7F</color>
 </resources>
