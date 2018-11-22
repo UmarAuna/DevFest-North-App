@@ -21,8 +21,9 @@
             android:orientation="horizontal">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/aprofile_photo"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="60dp"
                 android:src="@drawable/speakers"
                 android:padding="3dp"/>
             <Space
@@ -48,22 +49,22 @@
             android:textColor="#ffffff"
             android:autoSizeTextType="uniform"
             android:text="Speaker"
-            android:fontFamily="casual"
+            android:fontFamily="@font/googlesansmedium"
             android:id="@+id/aspeaker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp" />
+            android:layout_margin="10dp" />
 
         <TextView android:textSize="20sp"
             android:id="@+id/atitle"
             android:text="Title"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="@font/googlesansbold"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoSizeTextType="uniform"
-            android:layout_margin="3dp" />
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -81,7 +82,7 @@
                 android:autoSizeTextType="uniform"
                 android:text="When"
                 android:id="@+id/when_display"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/googlesansregular"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -95,10 +96,11 @@
                 android:textSize="15sp"
                 android:autoSizeTextType="uniform"
                 android:text="When"
+                android:layout_gravity="center"
                 android:id="@+id/awhen"
+                android:fontFamily="@font/googlesansmedium"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -109,7 +111,7 @@
                 android:textSize="15sp"
                 android:autoSizeTextType="uniform"
                 android:text="Where"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/googlesansregular"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:id="@+id/where_display"
@@ -117,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp" />
             <Space
-                android:layout_width="25dp"
+                android:layout_width="30dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"/>
             <TextView
@@ -125,9 +127,10 @@
                 android:autoSizeTextType="uniform"
                 android:text="Where"
                 android:id="@+id/awhere"
+                android:layout_gravity="center"
+                android:fontFamily="@font/googlesansmedium"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
         <LinearLayout
@@ -139,7 +142,7 @@
                 android:textSize="15sp"
                 android:id="@+id/display_time"
                 android:text="Time"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/googlesansregular"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -147,17 +150,18 @@
                 android:autoSizeTextType="uniform"
                 android:layout_margin="10dp" />
             <Space
-                android:layout_width="33dp"
+                android:layout_width="43dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"/>
             <TextView
                 android:textSize="15sp"
                 android:id="@+id/atime"
                 android:text="Time"
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/googlesansmedium"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autoSizeTextType="uniform"
-                android:layout_margin="10dp" />
+                android:autoSizeTextType="uniform" />
 
         </LinearLayout>
         <LinearLayout
@@ -169,21 +173,27 @@
                 android:textSize="15sp"
                 android:autoSizeTextType="uniform"
                 android:text="Category"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/googlesansregular"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:id="@+id/display_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp" />
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
             <TextView
                 android:textSize="15sp"
                 android:autoSizeTextType="uniform"
                 android:text="Category"
+                android:fontFamily="@font/googlesansmedium"
                 android:id="@+id/acategory"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp" />
+                />
 
         </LinearLayout>
 
