@@ -4,20 +4,20 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+        android:layout_margin="2dp"
         android:background="#dedede"
         cardview:cardElevation="1dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:padding="10dp"
+            android:padding="15dp"
             android:layout_height="match_parent">
             <TextView
-                android:textSize="25sp"
-                android:fontFamily="sans-serif-condensed"
-                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="@font/googlesansmedium"
                 android:autoSizeTextType="uniform"
                 android:text="Title"
+                android:textColor="@color/textDark"
                 android:id="@+id/ftitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -26,15 +26,15 @@
                 android:autoLink="all"
                 android:textIsSelectable="true"
                 android:text="Flutter is Google’s mobile app SDK for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around, www.google.com, +234081839093"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/googlesansregular"
                 android:id="@+id/fcontent"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:text="Wed Jul 9"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/googlesansregular"
                 android:gravity="end"
                 android:id="@+id/ftime"
                 android:layout_marginTop="5dp"

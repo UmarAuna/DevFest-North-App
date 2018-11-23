@@ -6,19 +6,20 @@
     android:background="#dedede"
     android:orientation="vertical"
     tools:context=".fragments.Feeds">
+
     <TextView
         android:id="@+id/list_feeds_error"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
+        android:background="#EA4335"
         android:fontFamily="monospace"
         android:gravity="center"
-        android:textColor="#dedede"
         android:padding="1dp"
-        android:background="#EA4335"
         android:text="No internet connection"
+        android:textColor="#dedede"
         android:textSize="12sp"
         android:visibility="gone" />
 
@@ -27,13 +28,15 @@
         android:layout_height="match_parent"
         android:background="#dedede"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
         <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/recycle_feeds"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </LinearLayout>

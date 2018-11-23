@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,11 +43,14 @@ public class Schedules extends Fragment {
     private FirebaseRecyclerAdapter<schedules_model, ScheduleViews> firebaserecyclerAdapter;
     private RecyclerView recyclerView;
     private DatabaseReference myref;
-    TextView   mEmptyListView;
-    public static Schedules newInstance(){
+    TextView mEmptyListView;
+    LinearLayoutManager layoutManager;
+
+    public static Schedules newInstance() {
         Schedules fragment = new Schedules();
         return fragment;
     }
+
     public Schedules() {
         // Required empty public constructor
     }
@@ -62,12 +66,17 @@ public class Schedules extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView =  inflater.inflate(R.layout.fragment_schedules, container, false);
+        rootView = inflater.inflate(R.layout.fragment_schedules, container, false);
         recyclerView = rootView.findViewById(R.id.recycle_schedules);
         mEmptyListView = rootView.findViewById(R.id.list_schedules_error);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
+        //recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.setNestedScrollingEnabled(false);
         myref = FirebaseDatabase.getInstance().getReference().child("Agenda");
         myref.keepSynced(true);
 
@@ -77,7 +86,7 @@ public class Schedules extends Fragment {
             mEmptyListView.setVisibility(View.VISIBLE);
         }
 
-        FirebaseRecyclerOptions<schedules_model> options = new FirebaseRecyclerOptions.Builder<schedules_model>().setQuery(myref,schedules_model.class).build();
+        FirebaseRecyclerOptions<schedules_model> options = new FirebaseRecyclerOptions.Builder<schedules_model>().setQuery(myref, schedules_model.class).build();
 
         firebaserecyclerAdapter = new FirebaseRecyclerAdapter<schedules_model, ScheduleViews>(options) {
 
@@ -92,6 +101,28 @@ public class Schedules extends Fragment {
                 viewholder.setSpeaker(model.getSpeaker());
                 RequestOptions placeholderRequest = new RequestOptions();
                 placeholderRequest.placeholder(R.drawable.warning);
+
+                switch (model.getCategory()) {
+                    case "Android":
+                        viewholder.category.setBackground(getResources().getDrawable(R.drawable.android_category));
+                        break;
+                    case "Web":
+                        viewholder.category.setBackground(getResources().getDrawable(R.drawable.web_category));
+                        break;
+                    case "Machine Learning":
+                        viewholder.category.setBackground(getResources().getDrawable(R.drawable.machine_learning_category));
+                        break;
+                    case "Cloud":
+                        viewholder.category.setBackground(getResources().getDrawable(R.drawable.cloud_category));
+                        break;
+                    case "UI/UX":
+                        viewholder.category.setBackground(getResources().getDrawable(R.drawable.uiux_category));
+                        break;
+                    default:
+                        viewholder.category.setBackground(getResources().getDrawable(R.drawable.general_category));
+                        break;
+
+                }
                 viewholder.setCategory(model.getCategory());
                 viewholder.setImage(model.getImage());
                 viewholder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -100,14 +131,14 @@ public class Schedules extends Fragment {
                         Bundle extras = new Bundle();
                         Intent nextactivity = new Intent(v.getContext(), SchedulesDetail.class);
 
-                        nextactivity.putExtra("title",model.getTitle());
-                        nextactivity.putExtra("time",model.getTime());
-                        nextactivity.putExtra("when",model.getWhen());
-                        nextactivity.putExtra("where",model.getWhere());
-                        nextactivity.putExtra("speaker",model.getSpeaker());
-                        nextactivity.putExtra("category",model.getCategory());
+                        nextactivity.putExtra("title", model.getTitle());
+                        nextactivity.putExtra("time", model.getTime());
+                        nextactivity.putExtra("when", model.getWhen());
+                        nextactivity.putExtra("where", model.getWhere());
+                        nextactivity.putExtra("speaker", model.getSpeaker());
+                        nextactivity.putExtra("uiux_category", model.getCategory());
 
-                        nextactivity.putExtra("image",model.getImage());
+                        nextactivity.putExtra("image", model.getImage());
 
 
                         nextactivity.putExtras(extras);
@@ -120,7 +151,7 @@ public class Schedules extends Fragment {
 
             @Override
             public ScheduleViews onCreateViewHolder(ViewGroup parent, int viewType) {
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.schedules_custom_list,parent,false);
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.schedules_custom_list, parent, false);
                 return new ScheduleViews(v);
             }
         };
@@ -128,6 +159,7 @@ public class Schedules extends Fragment {
 
         return rootView;
     }
+
     public static class ScheduleViews extends RecyclerView.ViewHolder {
         View mView;
         TextView title;
@@ -150,24 +182,29 @@ public class Schedules extends Fragment {
             speaker = itemView.findViewById(R.id.Sspeaker);
             category = itemView.findViewById(R.id.Scategory);
 
-            image=  itemView.findViewById(R.id.Sphoto);
+            image = itemView.findViewById(R.id.Sphoto);
         }
 
         public void setTitle(String titles) {
             title.setText(titles);
         }
+
         public void setTime(String times) {
             time.setText(times);
         }
+
         public void setWhen(String whens) {
             when.setText(whens);
         }
+
         public void setWhere(String wheres) {
             where.setText(wheres);
         }
+
         public void setSpeaker(String speakers) {
             speaker.setText(speakers);
         }
+
         public void setCategory(String categories) {
             category.setText(categories);
         }

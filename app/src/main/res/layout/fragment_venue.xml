@@ -58,28 +58,29 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
-            android:fontFamily="casual"
-            android:textStyle="bold"
+            android:fontFamily="@font/googlesansmedium"
+            android:textColor="@color/textDark"
             android:text="About the Venue"/>
 
         <TextView android:textSize="15sp"
             android:id="@+id/mapAddress"
             android:text=""
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/googlesansmedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:layout_margin="10dp" />
+            android:layout_marginTop="5dp"
+            android:autoSizeTextType="uniform" />
 
         <TextView
             android:textSize="15sp"
             android:autoSizeTextType="uniform"
-            android:text=""
+            android:text="hhjjj"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/mapAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:layout_marginTop="10dp"
+            />
 
 </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

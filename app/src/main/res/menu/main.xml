@@ -12,11 +12,19 @@
         android:title="About"
         app:showAsAction="never" />
     <item
+        android:id="@+id/signin"
+        android:orderInCategory="100"
+        android:title="Signin"
+        android:icon="@drawable/ic_account_circle"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/search"
         android:orderInCategory="100"
         android:title="Search Speakers"
         android:icon="@drawable/search"
         app:showAsAction="always" />
+
+
 
 
 </menu>
