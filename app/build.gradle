@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -26,8 +27,14 @@ android {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE-FIREBASE.txt'
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
-
+ext {
+    dagger = "2.16"
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
@@ -66,7 +73,26 @@ dependencies {
 
     //Custom Chrome Tab
     implementation 'com.android.support:customtabs:28.0.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    // Dagger
+    implementation "com.google.dagger:dagger-android:2.16"
+    implementation "com.google.dagger:dagger-android-support:2.16"
+    kapt "com.google.dagger:dagger-compiler:2.16"
+    kapt "com.google.dagger:dagger-android-processor:2.16"
+
+
+    //workmanager
+    implementation ("android.arch.work:work-runtime:1.0.0-alpha11"){
+        exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+    //arch components
+    implementation "android.arch.lifecycle:extensions:1.1.1"
 
 }
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'kotlin-android-extensions'
