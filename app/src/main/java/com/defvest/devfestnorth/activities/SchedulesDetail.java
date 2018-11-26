@@ -62,7 +62,7 @@ public class SchedulesDetail extends AppCompatActivity {
             small_when = display.getString("when");
             small_where = display.getString("where");
             small_spaker = display.getString("speaker");
-            small_category = display.getString("category");
+            small_category = display.getString("uiux_category");
 
             String s = getIntent().getStringExtra("image");
 
