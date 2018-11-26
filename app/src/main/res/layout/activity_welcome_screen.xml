@@ -57,7 +57,7 @@
         android:layout_marginBottom="100dp"
         android:autoSizeTextType="uniform"
         android:fontFamily="casual"
-        android:text="version 1.0.0"
+        android:text="version 1.0.1"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"
