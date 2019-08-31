@@ -1,6 +1,6 @@
 package com.defvest.devfestnorth.di
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.defvest.devfestnorth.viewmodel.MainActivityViewModel
 import com.defvest.devfestnorth.viewmodel.ProfileActivityViewModel
 import com.defvest.devfestnorth.viewmodel.ViewModelKey

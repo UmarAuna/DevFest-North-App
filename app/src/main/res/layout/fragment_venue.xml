@@ -25,7 +25,7 @@
         android:textSize="12sp"
         android:visibility="gone" />
 
-<android.support.v4.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     android:background="#dedede"
@@ -83,5 +83,5 @@
             />
 
 </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>
 </LinearLayout>

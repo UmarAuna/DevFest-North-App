@@ -30,7 +30,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
