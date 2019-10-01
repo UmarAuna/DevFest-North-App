@@ -2,16 +2,16 @@ package com.defvest.devfestnorth.activities
 
 import android.Manifest
 import android.app.Activity
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.ActivityCompat.startActivityForResult
-import android.support.v4.content.ContextCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -73,7 +73,7 @@ class ProfileActivity : DaggerAppCompatActivity() {
             startActivityForResult(chooseIntent, REQUEST_CODE_IMAGE)
         }
 
-        profileActivityViewModel.getUploadWorkStatus().observe(this, android.arch.lifecycle.Observer {status ->
+        profileActivityViewModel.getUploadWorkStatus().observe(this, androidx.lifecycle.Observer { status ->
 
             if(status!!.state.isFinished){
                 progressBar.hideProgress()
@@ -164,7 +164,7 @@ class ProfileActivity : DaggerAppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val user = dataSnapshot.getValue<User>(User::class.java)
                 userName.text = user!!.fullName
-                email.text = user!!.email
+                email.text = user.email
                 if(userImage != null){
                     Glide.with(userImage.context).load(user.imageUrl).into(userImage)
                 }
