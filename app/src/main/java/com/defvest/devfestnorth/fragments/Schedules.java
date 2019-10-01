@@ -2,28 +2,24 @@ package com.defvest.devfestnorth.fragments;
 
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.defvest.devfestnorth.R;
-import com.defvest.devfestnorth.activities.OrganizersDetail;
 import com.defvest.devfestnorth.activities.SchedulesDetail;
-import com.defvest.devfestnorth.models.organizers_model;
 import com.defvest.devfestnorth.models.schedules_model;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -70,11 +66,12 @@ public class Schedules extends Fragment {
         recyclerView = rootView.findViewById(R.id.recycle_schedules);
         mEmptyListView = rootView.findViewById(R.id.list_schedules_error);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
         //recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setNestedScrollingEnabled(false);
         myref = FirebaseDatabase.getInstance().getReference().child("Agenda");

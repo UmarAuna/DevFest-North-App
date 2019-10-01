@@ -1,10 +1,10 @@
 package com.defvest.devfestnorth.viewmodel
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.defvest.devfestnorth.activities.MainActivity
 import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
+import androidx.core.content.ContextCompat.startActivity
 import android.widget.Toast
 import com.defvest.devfestnorth.models.User
 import com.google.firebase.auth.FirebaseUser

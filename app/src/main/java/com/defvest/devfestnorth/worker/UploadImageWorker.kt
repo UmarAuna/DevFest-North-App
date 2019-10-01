@@ -25,7 +25,7 @@ class UploadImageWorker(context: Context, params: WorkerParameters) : Worker(con
             throw IllegalArgumentException("Invalid input uri")
         }
 
-        val photoRef = mStorage.child("photo").child(Uri.parse(resourceUri).lastPathSegment).putFile(Uri.parse(resourceUri))
+        val photoRef = mStorage.child("photo").child(Uri.parse(resourceUri).lastPathSegment.toString()).putFile(Uri.parse(resourceUri))
 
         return Result.SUCCESS
 

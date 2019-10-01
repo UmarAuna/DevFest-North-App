@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:fitsSystemWindows="true">
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -78,7 +78,7 @@
                     android:focusable="true" />
             </RelativeLayout>
         </RelativeLayout>
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/list_speaker_error"
@@ -98,7 +98,7 @@
         android:textSize="12sp"
         android:visibility="gone" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
